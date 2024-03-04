@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import { Provider } from "react-redux";
 import HomeScreen from "./pages/HomeScreen";
+import ProductScreen from "./pages/ProductScreen";
 // import store from "./yourReduxStorePath"; // Import your Redux store
 
 const router = createBrowserRouter(
@@ -25,10 +26,10 @@ const router = createBrowserRouter(
         path="/search/:keyword/page/:pageNumber"
         element={<HomeScreen />}
       />
-      {/* <Route path="/product/:id" element={<ProductScreen />} />
-      <Route path="/cart" element={<CartScreen />} />
+      <Route path="/product/:id" element={<ProductScreen />} />
+      {/* <Route path="/cart" element={<CartScreen />} />
       <Route path="/login" element={<LoginScreen />} />
-      <Route path="/register" element={<RegisterScreen />} /> */}
+      <Route path="/register" element={<RegisterScreen />} />  */}
       {/* Registered users */}
       {/* <Route path="" element={<PrivateRoute />}>
         <Route path="/shipping" element={<ShippingScreen />} />
