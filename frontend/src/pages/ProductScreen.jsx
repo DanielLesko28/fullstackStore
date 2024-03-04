@@ -23,9 +23,7 @@ import Rating from "../components/Rating";
 // import { addToCart } from "../slices/cartSlice";
 
 const ProductScreen = () => {
-  const { id: productId } = useParams();
-
-  console.log("product page", productId);
+  const { _id: productId } = useParams();
 
   //   const dispatch = useDispatch();
   const navigate = useNavigate();
