@@ -35,7 +35,7 @@ const Header = () => {
     <header>
       <Navbar bg="primary" variant="dark" expand="lg" collapseOnSelect>
         <Container>
-          <h1>Hello</h1>
+          <h1 style={{ color: "white" }}>Hello</h1>
           {/* <LinkContainer to="/">
             <Navbar.Brand>
               <img src={logo} alt="ProShop" />
