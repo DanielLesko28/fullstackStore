@@ -2,7 +2,7 @@ import { Navbar, Nav, Container, NavDropdown, Badge } from "react-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { LinkContainer } from "react-router-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { useLogoutMutation } from "../slices/usersApiSlice";
 // import { logout } from "../slices/authSlice";
 // import SearchBox from "./SearchBox";
@@ -35,7 +35,9 @@ const Header = () => {
     <header>
       <Navbar bg="primary" variant="dark" expand="lg" collapseOnSelect>
         <Container>
-          <h1 style={{ color: "white" }}>Hello</h1>
+          <Link to="/">
+            <h1 style={{ color: "white" }}>My Own Shop</h1>
+          </Link>
           {/* <LinkContainer to="/">
             <Navbar.Brand>
               <img src={logo} alt="ProShop" />

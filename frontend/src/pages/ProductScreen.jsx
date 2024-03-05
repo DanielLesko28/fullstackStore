@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 // import { useDispatch, useSelector } from "react-redux";
@@ -17,33 +16,29 @@ import {
 //   useCreateReviewMutation,
 // } from "../slices/productsApiSlice";
 import Rating from "../components/Rating";
-import axios from "axios";
+import { useGetProductDetailsQuery } from "../slices/productsApiSlice";
 // import Loader from "../components/Loader";
 // import Message from "../components/Message";
 // import Meta from "../components/Meta";
 // import { addToCart } from "../slices/cartSlice";
 
 const ProductScreen = () => {
-  const [product, setProduct] = useState({});
   const { _id: productId } = useParams();
+  const {
+    data: product,
+    isLoading,
+    error,
+  } = useGetProductDetailsQuery(productId);
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const { data } = await axios.get(`/api/products/${productId}`);
-      setProduct(data);
-    };
-
-    fetchProduct();
-  }, [productId]);
-
-  console.log("single product", product);
+  //   console.log("single product", product);
+  console.log("productId", productId);
 
   //   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [qty, setQty] = useState(1);
-  const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState("");
+  //   const [qty, setQty] = useState(1);
+  //   const [rating, setRating] = useState(0);
+  //   const [comment, setComment] = useState("");
 
   //   const addToCartHandler = () => {
   //     dispatch(addToCart({ ...product, qty }));
