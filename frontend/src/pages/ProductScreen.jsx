@@ -25,6 +25,10 @@ import { useGetProductDetailsQuery } from "../slices/productsApiSlice";
 
 const ProductScreen = () => {
   const { _id: productId } = useParams();
+
+  //   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     data: product,
     isLoading,
@@ -33,9 +37,6 @@ const ProductScreen = () => {
 
   //   console.log("single product", product);
   console.log("productId", productId);
-
-  //   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
