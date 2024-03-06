@@ -48,7 +48,7 @@ const cartSlice = createSlice({
         Number(state.taxPrice)
       ).toFixed(2);
 
-      localStorage.setItem("cart", JSOn.stringify(state));
+      localStorage.setItem("cart", JSON.stringify(state));
     },
   },
 });

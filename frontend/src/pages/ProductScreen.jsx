@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 // import { useDispatch, useSelector } from "react-redux";
@@ -36,9 +37,9 @@ const ProductScreen = () => {
   //   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  //   const [qty, setQty] = useState(1);
-  //   const [rating, setRating] = useState(0);
-  //   const [comment, setComment] = useState("");
+  const [qty, setQty] = useState(1);
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState("");
 
   //   const addToCartHandler = () => {
   //     dispatch(addToCart({ ...product, qty }));
