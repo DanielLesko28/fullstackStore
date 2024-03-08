@@ -3,15 +3,14 @@ import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { LinkContainer } from "react-router-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-// import { useLogoutMutation } from "../slices/usersApiSlice";
-// import { logout } from "../slices/authSlice";
+import { useLogoutMutation } from "../slices/usersApiSlice";
+import { logout } from "../slices/authSlice";
 // import SearchBox from "./SearchBox";
-// import logo from "../assets/logo.png";
-// import { resetCart } from "../slices/cartSlice";
+import { resetCart } from "../slices/cartSlice";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
-  //   const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -58,7 +57,7 @@ const Header = () => {
                   )}
                 </Nav.Link>
               </LinkContainer>
-              {/* {userInfo ? (
+              {userInfo ? (
                 <>
                   <NavDropdown title={userInfo.name} id="username">
                     <LinkContainer to="/profile">
@@ -67,7 +66,7 @@ const Header = () => {
                     {/* <NavDropdown.Item onClick={logoutHandler}>
                       Logout
                     </NavDropdown.Item> */}
-              {/* </NavDropdown>
+                  </NavDropdown>
                 </>
               ) : (
                 <LinkContainer to="/login">
@@ -75,10 +74,9 @@ const Header = () => {
                     <FaUser /> Sign In
                   </Nav.Link>
                 </LinkContainer>
-              )} */}
-
+              )}
               {/* Admin Links */}
-              {/* {userInfo && userInfo.isAdmin && (
+              {userInfo && userInfo.isAdmin && (
                 <NavDropdown title="Admin" id="adminmenu">
                   <LinkContainer to="/admin/productlist">
                     <NavDropdown.Item>Products</NavDropdown.Item>
@@ -90,7 +88,7 @@ const Header = () => {
                     <NavDropdown.Item>Users</NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
-              )} */}
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
