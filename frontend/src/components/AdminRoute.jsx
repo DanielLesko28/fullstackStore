@@ -3,6 +3,9 @@ import { useSelector } from "react-redux";
 
 const AdminRoute = () => {
   const { userInfo } = useSelector((state) => state.auth);
+
+  console.log("userInfo in admin route", userInfo);
+
   return userInfo && userInfo.isAdmin ? (
     <Outlet />
   ) : (
