@@ -94,7 +94,9 @@ const getUserProfile = asyncHandler(async (req, res) => {
 // @route   PUT /api/users/profile
 // @access  Private
 const updateUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.params.id);
+  const user = await User.findById(req.user._id);
+
+  // console.log("Stuff in user controller", req.user);
 
   if (user) {
     user.name = req.body.name || user.name;
@@ -111,7 +113,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(404);
-    throw new Error("User not found");
+    throw new Error("User not found in here", req.params);
   }
 });
 
