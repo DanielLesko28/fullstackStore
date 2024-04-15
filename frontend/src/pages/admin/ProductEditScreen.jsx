@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import {
   useGetProductDetailsQuery,
   useUpdateProductMutation,
+  useUploadProductImageMutation,
 } from "../../slices/productsApiSlice";
 
 const ProductEditScreen = () => {
@@ -30,6 +31,9 @@ const ProductEditScreen = () => {
 
   const [updateProduct, { isLoading: loadingUpdate }] =
     useUpdateProductMutation();
+
+  const [uploadProductImage, { isLoading: loadingUpload }] =
+    useUploadProductImageMutation();
 
   const navigate = useNavigate();
 
@@ -66,8 +70,16 @@ const ProductEditScreen = () => {
     }
   };
 
-  const uploadFileHandler = () => {
-    console.log("uploading file");
+  const uploadFileHandler = async (e) => {
+    const formData = new FormData();
+    formData.append("image", e.target.files[0]);
+    try {
+      const res = await uploadProductImage(formData).unwrap();
+      toast.success(res.message);
+      setImage(res.image);
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
   };
 
   //   console.log("single product for editing", product);
@@ -119,7 +131,7 @@ const ProductEditScreen = () => {
                 onChange={uploadFileHandler}
                 type="file"
               ></Form.Control>
-              {/* {loadingUpload && <Loader />} */}
+              {loadingUpload && <Loader />}
             </Form.Group>
 
             <Form.Group controlId="brand">
