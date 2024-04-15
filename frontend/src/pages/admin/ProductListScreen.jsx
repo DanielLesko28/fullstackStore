@@ -32,7 +32,7 @@ const ProductListScreen = () => {
     }
   };
 
-  //   console.log("products in admin products page", products);
+  //   console.log("products in admin products page", data);
 
   return (
     <>
@@ -60,6 +60,7 @@ const ProductListScreen = () => {
                 <th>NAME</th>
                 <th>PRICE</th>
                 <th>CATEGORY</th>
+                <th>COUNT IN STOCK</th>
                 <th>BRAND</th>
                 <th></th>
               </tr>
@@ -71,6 +72,7 @@ const ProductListScreen = () => {
                   <td>{product.name}</td>
                   <td>${product.price}</td>
                   <td>{product.category}</td>
+                  <td>{product.countInStock}</td>
                   <td>{product.brand}</td>
                   <td>
                     <LinkContainer to={`/admin/product/${product._id}/edit`}>
