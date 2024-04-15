@@ -136,7 +136,7 @@ const ProfileScreen = () => {
                     <td>{order.totalPrice}</td>
                     <td>
                       {order.isPaid ? (
-                        order.deliveredAt.substring(0, 10)
+                        <MdOutlineDone size={20} />
                       ) : (
                         <FaTimes style={{ color: "red" }} />
                       )}
